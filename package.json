@@ -1,0 +1,56 @@
+{
+  "name": "lchean-webpack-starter",
+  "version": "0.0.1",
+  "description": "Simple webpack starter",
+  "main": "app.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build:dev": "webpack --mode=development",
+    "build:prd": "cross-env NODE_ENV=production webpack --mode=production"
+  },
+  "browserslist": [
+    "last 1 version",
+    "> 1%"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.7.1",
+    "autoprefixer": "^9.7.1",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.2.0",
+    "cssnano": "^4.1.10",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "file-loader": "^4.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "postcss-cli": "^6.1.3",
+    "postcss-loader": "^3.0.0",
+    "prettier-eslint": "^9.0.0",
+    "sass-loader": "^8.0.0",
+    "stylelint": "^11.1.1",
+    "stylelint-config-recommended-scss": "^4.0.0",
+    "stylelint-scss": "^3.12.1",
+    "stylelint-webpack-plugin": "^1.0.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "core-js": "^3.4.1",
+    "normalize.css": "^8.0.1",
+    "postcss-inline-svg": "^4.1.0"
+  }
+}

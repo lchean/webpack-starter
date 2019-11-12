@@ -1,0 +1,13 @@
+{
+  "extends": "stylelint-config-recommended-scss",
+  "rules": {
+    "block-no-empty": true,
+    "unit-whitelist": ["em", "rem", "px", "%", "deg", "vh", "vw", "s", "ms"],
+    "block-closing-brace-newline-after": "always",
+    "max-empty-lines": 1,
+    "no-descending-specificity": null,
+    "declaration-block-no-duplicate-properties": true,
+    "selector-pseudo-class-no-unknown": true,
+    "property-no-unknown": true
+  }
+}
