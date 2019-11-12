@@ -26,8 +26,9 @@ npm run build:dev
 
 ## Prod build
 ```
-npm run watch:prd
+npm run build:prd
 ```
 
-[Dynamic import](https://v8.dev/features/dynamic-import)
-[SVG post css](https://github.com/TrySound/postcss-inline-svg)
+## Doc
+1. [Dynamic import](https://v8.dev/features/dynamic-import)
+2. [SVG post css](https://github.com/TrySound/postcss-inline-svg)
