@@ -2,18 +2,35 @@ const path = require('path');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
-const publicPath = '/public/';
+
+const config = {
+  entry: ['./src/js/app.js'],
+  publicPath: '/dist/',
+  outputJs: 'js/index.js',
+  outputCssDir: 'css/',
+  outputFontsDir: 'fonts/',
+  outputImagesDir: 'img/',
+  stylelintConfig: '.stylelintrc.json',
+};
+
+const {
+  entry,
+  publicPath,
+  outputJs,
+  outputFontsDir,
+  outputImagesDir,
+  outputCssDir,
+} = config;
 
 module.exports = {
-  entry: ['./src/js/app.js'],
+  entry,
   mode: devMode ? 'development' : 'production',
   devtool: devMode ? 'source-map' : false,
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'index.js',
+    path: path.resolve(__dirname, `.${publicPath}`),
+    filename: outputJs,
     chunkFilename: '[name].js',
     publicPath,
   },
@@ -64,7 +81,7 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: '[name].[ext]',
-          outputPath: 'fonts/',
+          outputPath: outputFontsDir,
         },
       },
       {
@@ -72,19 +89,17 @@ module.exports = {
         loader: 'file-loader',
         options: {
           name: '[name].[ext]',
-          outputPath: 'img/',
+          outputPath: outputImagesDir,
         },
       },
     ],
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new StyleLintPlugin({
-      configFile: '.stylelintrc.json',
-      files: './src/scss/**/*',
-    }),
+
     new MiniCssExtractPlugin({
-      filename: 'style.css',
+      filename: `${outputCssDir}[name].css`,
+      chunkFilename: 'css/[name].css',
     }),
   ],
   optimization: {
@@ -95,11 +110,5 @@ module.exports = {
       maxInitialRequests: 30,
       minSize: 0,
     },
-  },
-  devServer: {
-    compress: true,
-    port: 9000,
-    clientLogLevel: 'silent',
-    publicPath,
   },
 };
